@@ -75,8 +75,15 @@ sub xs_ok
   $xs = { xs => $xs } unless ref $xs;
   $xs->{pxs}->{'C++'} = 1;
   $xs->{cbuilder_compile}->{'C++'} = 1;
-  $xs->{cpp} = 1;
-  $xs->{c_ext} = 'cpp';
+  
+  if($Test::Alien::VERSION >= 0.96)
+  {
+    $xs->{c_ext} = 'cpp';
+  }
+  else
+  {
+    $xs->{cpp} = 1;
+  }
   
   $cb ? Test::Alien::xs_ok($xs, $message, $cb) : Test::Alien::xs_ok($xs, $message);
 }
