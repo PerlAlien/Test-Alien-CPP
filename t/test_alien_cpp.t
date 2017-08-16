@@ -14,7 +14,6 @@ subtest 'xs' => sub {
   xs_ok {
     xs      => $xs,
     verbose => 1,
-    cpp     => 1,
   }, 'C++', with_subtest { $subtest->(@_) };
 
 };
