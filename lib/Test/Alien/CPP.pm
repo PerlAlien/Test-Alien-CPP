@@ -76,6 +76,7 @@ sub xs_ok
   $xs->{pxs}->{'C++'} = 1;
   $xs->{cbuilder_compile}->{'C++'} = 1;
   $xs->{cpp} = 1;
+  $xs->{c_ext} = 'cpp';
   
   $cb ? Test::Alien::xs_ok($xs, $message, $cb) : Test::Alien::xs_ok($xs, $message);
 }
