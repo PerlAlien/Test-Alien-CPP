@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.97_01   2017-08-22 12:13:00 -0400
   - use ExtUtils::CppGuess for a hopefully better support for C++
 
 0.96      2017-08-16 11:37:50 -0400
