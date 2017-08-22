@@ -3,7 +3,9 @@ package Test::Alien::CPP;
 use strict;
 use warnings;
 use 5.008001;
-use Test::Alien 0.95 ();
+use ExtUtils::CppGuess;
+use Test::Alien 1.00 ();
+use Text::ParseWords qw( shellwords );
 use base qw( Exporter );
 
 # ABSTRACT: Testing tools for Alien modules for projects that use C++
@@ -74,17 +76,26 @@ sub xs_ok
 
   $xs = { xs => $xs } unless ref $xs;
   $xs->{pxs}->{'C++'} = 1;
-  $xs->{cbuilder_compile}->{'C++'} = 1;
-  
-  if($Test::Alien::VERSION >= 0.96)
+  $xs->{c_ext} = 'cpp';
+
+  my %stage = (
+    extra_compiler_flags => 'cbuilder_compile',
+    extra_linker_flags   => 'cbuilder_link',
+  );
+
+  my %cppguess = ExtUtils::CppGuess->new->module_build_options;
+  foreach my $name (qw( extra_compiler_flags extra_linker_flags ))
   {
-    $xs->{c_ext} = 'cpp';
+    next unless defined $cppguess{$name};
+    my @new = ref($cppguess{$name}) eq 'ARRAY' ? @{ delete $cppguess{$name} } : shellwords(delete $cppguess{$name});
+    my @old = do {
+      my $value = delete $xs->{$stage{$name}}->{$name};
+      ref($value) eq 'ARRAY' ? @$value : shellwords($value);
+    };
+    $xs->{$stage{$name}}->{$name} = [@new, @old];
   }
-  else
-  {
-    $xs->{cpp} = 1;
-  }
-  
+  warn "extra Module::Build option: $_" for keys %cppguess;
+
   $cb ? Test::Alien::xs_ok($xs, $message, $cb) : Test::Alien::xs_ok($xs, $message);
 }
 
