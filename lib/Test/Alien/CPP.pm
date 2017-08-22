@@ -74,7 +74,15 @@ sub xs_ok
   $cb = pop if defined $_[-1] && ref $_[-1] eq 'CODE';
   my($xs, $message) = @_;
 
-  $xs = { xs => $xs } unless ref $xs;
+  if(ref($xs))
+  {
+    my %xs = %$xs;
+    $xs = \%xs;
+  }
+  else
+  {
+    $xs = { xs => $xs } unless ref $xs;
+  }
   $xs->{pxs}->{'C++'} = 1;
   $xs->{c_ext} = 'cpp';
 
