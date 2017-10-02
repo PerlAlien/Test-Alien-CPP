@@ -4,6 +4,7 @@ sudo: false
 install:
   - perlbrew list
   - cpanm -n Dist::Zilla
+  - ./maint/travis-install-mods
   - dzil authordeps --missing | cpanm -n
   - dzil listdeps   --missing | cpanm -n
 
