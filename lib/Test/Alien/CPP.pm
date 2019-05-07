@@ -100,7 +100,7 @@ sub xs_ok
       my $value = delete $xs->{$stage{$name}}->{$name};
       ref($value) eq 'ARRAY' ? @$value : shellwords($value);
     };
-    $xs->{$stage{$name}}->{$name} = [@new, @old];
+    $xs->{$stage{$name}}->{$name} = [@old, @new];
   }
   warn "extra Module::Build option: $_" for keys %cppguess;
 
