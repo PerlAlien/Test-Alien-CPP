@@ -58,7 +58,11 @@ See [Test::Alien](https://metacpan.org/pod/Test::Alien) for further details on h
 
 # AUTHOR
 
-Graham Ollis <plicease@cpan.org>
+Author: Graham Ollis <plicease@cpan.org>
+
+Contributors:
+
+Roy Storey (KIWIROY)
 
 # COPYRIGHT AND LICENSE
 
