@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.00_01   2019-05-08 05:38:57 -0600
   - Put libstdc++ last (KIWIROY++, mohawk++)
 
 0.99      2017-10-02 15:35:12 -0400
