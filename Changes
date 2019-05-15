@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Bump required version of ExtUtils::CBuilder for C++ compat
+  - Moved to Perl5-Alien GitHub org
 
 1.00_01   2019-05-08 05:38:57 -0600
   - Put libstdc++ last (KIWIROY++, mohawk++)

@@ -1,4 +1,4 @@
-# Test::Alien::CPP [![Build Status](https://secure.travis-ci.org/plicease/Test-Alien-CPP.png)](http://travis-ci.org/plicease/Test-Alien-CPP)
+# Test::Alien::CPP [![Build Status](https://secure.travis-ci.org/Perl5-Alien/Test-Alien-CPP.png)](http://travis-ci.org/Perl5-Alien/Test-Alien-CPP)
 
 Testing tools for Alien modules for projects that use C++
 
