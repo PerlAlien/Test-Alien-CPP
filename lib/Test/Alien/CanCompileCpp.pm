@@ -3,6 +3,7 @@ package Test::Alien::CanCompileCpp;
 use strict;
 use warnings;
 use base 'Test2::Require';
+use ExtUtils::CBuilder 0.27;
 
 # ABSTRACT: Skip a test file unless a C++ compiler is available
 # VERSION
@@ -20,7 +21,6 @@ be available.  Otherwise the test will be skipped.
 
 sub skip
 {
-  require ExtUtils::CBuilder;
   ExtUtils::CBuilder->new->have_cplusplus ? undef : 'This test requires a compiler.';
 }
 
