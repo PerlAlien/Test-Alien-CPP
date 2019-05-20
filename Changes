@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.01      2019-05-20 14:51:27 -0400
   - Bump required version of ExtUtils::CBuilder for C++ compat
   - Moved to Perl5-Alien GitHub org
 
