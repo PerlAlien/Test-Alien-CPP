@@ -10,7 +10,7 @@ my %modules;
 my $post_diag;
 
 $modules{$_} = $_ for qw(
-  Data::Dumnper
+  Data::Dumper
   ExtUtils::CBuilder
   ExtUtils::CppGuess
   ExtUtils::MakeMaker
