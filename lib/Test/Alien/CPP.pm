@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use 5.008001;
 use ExtUtils::CppGuess;
-use Test::Alien 1.00 ();
+use Test::Alien 1.88 ();
 use Text::ParseWords qw( shellwords );
 use base qw( Exporter );
 
