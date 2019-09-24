@@ -104,6 +104,7 @@ sub xs_ok
   }
 
   $xs->{cbuilder_config} = delete $cppguess{config} if defined $cppguess{config};
+  $xs->{cbuilder_check} = 'have_cplusplus';
 
   warn "extra Module::Build option: $_" for keys %cppguess;
 
