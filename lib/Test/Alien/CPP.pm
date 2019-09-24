@@ -102,6 +102,7 @@ sub xs_ok
     };
     $xs->{$stage{$name}}->{$name} = [@old, @new];
   }
+  delete $cppguess{config}; # https://git.io/JesNl
   warn "extra Module::Build option: $_" for keys %cppguess;
 
   $cb ? Test::Alien::xs_ok($xs, $message, $cb) : Test::Alien::xs_ok($xs, $message);
