@@ -102,6 +102,9 @@ sub xs_ok
     };
     $xs->{$stage{$name}}->{$name} = [@old, @new];
   }
+
+  $xs->{cbuilder_config} = delete $cppguess{config} if defined $cppguess{config};
+
   warn "extra Module::Build option: $_" for keys %cppguess;
 
   $cb ? Test::Alien::xs_ok($xs, $message, $cb) : Test::Alien::xs_ok($xs, $message);
