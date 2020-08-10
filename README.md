@@ -1,38 +1,40 @@
-# Test::Alien::CPP [![Build Status](https://secure.travis-ci.org/Perl5-Alien/Test-Alien-CPP.png)](http://travis-ci.org/Perl5-Alien/Test-Alien-CPP)
+# Test::Alien::CPP [![Build Status](https://travis-ci.org/PerlAlien/Test-Alien-CPP.svg)](http://travis-ci.org/PerlAlien/Test-Alien-CPP)
 
 Testing tools for Alien modules for projects that use C++
 
 # SYNOPSIS
 
-    use Test2::V0;
-    use Test::Alien;
-    use Alien::libmycpplib;
-    
-    alien_ok 'ALien::libmycpplib';
-    my $xs = do { local $/; <DATA> };
-    xs_ok $xs, with_subtest {
-      my($module) = @_;
-      ok $module->version;
-    };
-    
-    done_testing;
-    
-    __DATA__
-    
-    #include "EXTERN.h"
-    #include "perl.h"
-    #include "XSUB.h"
-    #include <mycpplib.h>
-    
-    MODULE = TA_MODULE PACKAGE = TA_MODULE
-    
-    const char *
-    version(klass)
-        const char *klass
-      CODE:
-        RETVAL = MyCppLib->version;
-      OUTPUT:
-        RETVAL
+```perl
+use Test2::V0;
+use Test::Alien;
+use Alien::libmycpplib;
+
+alien_ok 'ALien::libmycpplib';
+my $xs = do { local $/; <DATA> };
+xs_ok $xs, with_subtest {
+  my($module) = @_;
+  ok $module->version;
+};
+
+done_testing;
+
+__DATA__
+
+#include "EXTERN.h"
+#include "perl.h"
+#include "XSUB.h"
+#include <mycpplib.h>
+
+MODULE = TA_MODULE PACKAGE = TA_MODULE
+
+const char *
+version(klass)
+    const char *klass
+  CODE:
+    RETVAL = MyCppLib->version;
+  OUTPUT:
+    RETVAL
+```
 
 # DESCRIPTION
 
@@ -45,8 +47,10 @@ delegating to [Test::Alien](https://metacpan.org/pod/Test::Alien).
 
 ## xs\_ok
 
-    xs_ok $xs;
-    xs_ok $xs, $message;
+```
+xs_ok $xs;
+xs_ok $xs, $message;
+```
 
 Compiles, links the given `XS` / C++ code and attaches to Perl.
 See [Test::Alien](https://metacpan.org/pod/Test::Alien) for further details on how this test works.
