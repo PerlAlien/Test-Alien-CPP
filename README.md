@@ -1,4 +1,4 @@
-# Test::Alien::CPP [![Build Status](https://travis-ci.org/PerlAlien/Test-Alien-CPP.svg)](http://travis-ci.org/PerlAlien/Test-Alien-CPP)
+# Test::Alien::CPP ![linux](https://github.com/PerlAlien/Test-Alien-CPP/workflows/linux/badge.svg)
 
 Testing tools for Alien modules for projects that use C++
 
