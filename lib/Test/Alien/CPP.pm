@@ -14,7 +14,7 @@ use base qw( Exporter );
 =head1 SYNOPSIS
 
  use Test2::V0;
- use Test::Alien;
+ use Test::Alien::CPP;
  use Alien::libmycpplib;
  
  alien_ok 'ALien::libmycpplib';

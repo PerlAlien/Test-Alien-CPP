@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Fix bug in synopsis example (gh#10, gh#11)
 
 1.02      2019-09-25 12:17:10 -0600
   - Handle newer versions of ExtUtils::CppGuess which can
