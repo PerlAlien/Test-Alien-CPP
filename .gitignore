@@ -1,2 +1,4 @@
 /Test-Alien-CPP-*
 /.build
+*.old
+*.orig
