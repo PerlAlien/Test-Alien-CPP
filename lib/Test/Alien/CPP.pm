@@ -98,7 +98,9 @@ sub xs_ok
     my @new = ref($cppguess{$name}) eq 'ARRAY' ? @{ delete $cppguess{$name} } : shellwords(delete $cppguess{$name});
     my @old = do {
       my $value = delete $xs->{$stage{$name}}->{$name};
-      ref($value) eq 'ARRAY' ? @$value : shellwords($value);
+      !defined $value            ? ()
+        : ref($value) eq 'ARRAY' ? @$value
+        :                          shellwords($value);
     };
     $xs->{$stage{$name}}->{$name} = [@old, @new];
   }
